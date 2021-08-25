@@ -1,15 +1,8 @@
 * Settings *
 Documentation       Passos login na aplicação GMC
-
 Library     BuiltIn
 
-* Variables *
-${input_email}              xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.EditText
-${input_password}           xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[1]/android.view.ViewGroup[2]/android.widget.EditText
-${txt_signin}               Sign In
-${btn_aceitar}              id=com.gm.gmc.nomad.ownership:id/acceptButton
-${btn_permitir_localiza}    id=com.android.permissioncontroller:id/permission_allow_one_time_button
-${GLOBAL_TIMEOUT}           25
+Resource    ../_elements/login_elements.robot
 
 
 * Keywords *
@@ -27,7 +20,13 @@ Fazer Login Com
 
 Aceitar Termos de Uso
     Wait Until Page Contains                User Terms          ${GLOBAL_TIMEOUT}
+    Wait Until Page Contains                Brief               ${GLOBAL_TIMEOUT}
+    Wait Until Element Is Visible           ${btn_aceitar}      ${GLOBAL_TIMEOUT}
+    Element Should Be Enabled               ${btn_aceitar}
     Click Element                           ${btn_aceitar}
+    Wait Until Page Contains                Brief               ${GLOBAL_TIMEOUT}
+    Wait Until Element Is Visible           ${btn_aceitar}      ${GLOBAL_TIMEOUT}
+    Element Should Be Enabled               ${btn_aceitar}
     Click Element                           ${btn_aceitar}
 
 Aceitar Compartilhar Localizacao
@@ -41,9 +40,5 @@ Aceitar Compartilhar Localizacao
 Validar Login na Dashboard
     Page Should Contain Element             accessibility_id=Account Menu, Opens Account Menu
 
-Executar Login e Acessar a Dashboard
-    Run Keyword     Escolher Autenticacao por Login
-    Run Keyword     Fazer Login Com     demetriotester@gmail.com    tester123
-    Run Keyword     Aceitar Termos de Uso
-    Run Keyword     Aceitar Compartilhar Localizacao
-    Run Keyword     Validar Login na Dashboard
+Validar Dados Invalidos no Login
+    Wait Until Page Contains                Incorrect Username or Password       ${GLOBAL_TIMEOUT}

@@ -1,7 +1,8 @@
 * Settings *
 Documentation           Arquivo com cenários das funcionalidades da Pagina Inicial
 
-Resource        resources/base.robot
+Resource        ../resources/support/base.robot
+Resource        ../resources/support/common_keywords.robot
 
 Test Setup      Abrir App
 Test Teardown   Fechar App

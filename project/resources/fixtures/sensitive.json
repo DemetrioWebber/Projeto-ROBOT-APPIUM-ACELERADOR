@@ -1,0 +1,10 @@
+{
+    "dados_validos":{
+        "email":"demetriotester@gmail.com",
+        "senha":"tester123"
+    },
+    "dados_invalidos":{
+        "email":"emailruimr@gmail.com",
+        "senha":"treinando123"
+    }
+}

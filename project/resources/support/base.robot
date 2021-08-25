@@ -1,7 +1,8 @@
 * Settings *
 Library     AppiumLibrary
 
-Resource        ./Actions/Autenticacao/login_actions.robot
+Resource        ../actions/autenticacao/login_actions.robot
+Resource        ./factory.robot
 
 * Variables *
 ${btn_continue_location}        id=com.gm.gmc.nomad.ownership:id/continueButton
